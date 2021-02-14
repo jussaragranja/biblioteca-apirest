@@ -15,6 +15,7 @@
     <description>Biblioteca - API REST</description>
     <properties>
         <java.version>11</java.version>
+        <groovy.version>3.0.2</groovy.version>
     </properties>
 
     <dependencies>

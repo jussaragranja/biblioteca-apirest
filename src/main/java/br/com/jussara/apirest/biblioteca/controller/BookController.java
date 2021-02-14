@@ -18,7 +18,6 @@ import static br.com.jussara.apirest.biblioteca.constant.Constants.*;
  * Books Controller
  */
 
-
 @RestController
 @RequestMapping(value = "/api")
 @Api(value = "API REST Biblioteca")
