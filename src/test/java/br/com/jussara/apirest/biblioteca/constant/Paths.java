@@ -9,5 +9,6 @@ public class Paths {
 
     public static final String PATH_BOOK_BY_ID = "api/book/{id}";
     public static final String PATH_BOOK_ID_NULL = "api/book/";
+    public static final String PATH_BOOKS = "api/books";
 
 }
