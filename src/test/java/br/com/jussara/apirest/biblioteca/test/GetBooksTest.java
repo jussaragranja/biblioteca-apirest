@@ -12,9 +12,11 @@ import org.springframework.boot.web.server.LocalServerPort;
 
 import java.util.List;
 
+import static br.com.jussara.apirest.biblioteca.constant.ConstantsTestUtil.ID;
 import static br.com.jussara.apirest.biblioteca.constant.Paths.PATH_BOOKS;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import static org.hamcrest.Matchers.equalTo;
 
 /**
  * @author jussaragranja
@@ -53,6 +55,5 @@ public class GetBooksTest extends SetupTest {
         .then()
             .contentType(ContentType.JSON)
             .statusCode(HttpStatus.SC_OK);
-        //.body(ID, equalTo(bookModel.getId().intValue()));
     }
 }
