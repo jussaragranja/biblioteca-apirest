@@ -1,6 +1,7 @@
 package br.com.jussara.apirest.biblioteca.service;
 
 import br.com.jussara.apirest.biblioteca.constant.Constants;
+import br.com.jussara.apirest.biblioteca.exception.ResourceBadRequestException;
 import br.com.jussara.apirest.biblioteca.exception.ResourceNotFoundException;
 import br.com.jussara.apirest.biblioteca.model.BookModel;
 import br.com.jussara.apirest.biblioteca.repository.BookRepository;
@@ -27,13 +28,13 @@ public class BookService {
     public BookModel createBook(BookModel bookModel){
         if (bookModel.getId() != null){
             if(bookRepository.findById(bookModel.getId()).isPresent()) {
-                throw new ResourceNotFoundException(Constants.MESSAGE_BOOK_REGISTERED);
+                throw new ResourceBadRequestException(Constants.MESSAGE_BOOK_REGISTERED);
             }
         }
         if(bookModel.getTitle() == null || bookModel.getAuthor() == null ||
                 bookModel.getTitle().equals("") || bookModel.getAuthor().equals("") ||
                 bookModel == null || bookModel.equals("")){
-            throw new ResourceNotFoundException(Constants.MESSAGE_BOOK_CANNOT_BE_NULL);
+            throw new ResourceBadRequestException(Constants.MESSAGE_BOOK_CANNOT_BE_NULL);
         }
         return bookRepository.save(bookModel);
     }
